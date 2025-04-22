@@ -1,0 +1,104 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+.navbar {
+    background-color: #f8f9fa !important;
+    border-bottom: 2px solid #00d3b8;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #00d3b8 !important;
+    border-bottom: 2px solid #00d3b8;
+}
+
+.btn-primary {
+    background-color: #00d3b8 !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #009f8f !important;
+}
+
+.btn-outline-primary {
+    color: #00d3b8 !important;
+    border: 2px solid #00d3b8;
+}
+
+.btn-outline-primary:hover {
+    background-color: #00d3b8 !important;
+    color: #fff !important;
+}
+/* Navbar */
+.navbar-brand {
+    color: #000 !important; /* Ganti #000 dengan warna yang diinginkan, misalnya #000 untuk hitam */
+}
+
+.navbar-brand:hover {
+    color: #00d3b8 !important; /* Ganti dengan warna hover yang diinginkan */
+}
+
+.navbar {
+    background-color: #8bc6bf;
+}
+
+
+
+.navbar .nav-link {
+    color: #ffffff;
+}
+
+.navbar .nav-link:hover {
+    color: #00d3b8;
+}
+
+/* Hero Section */
+#hero {
+    background-color: #f0f8ff;
+    padding: 80px 0;
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+#hero p {
+    font-size: 1.25rem;
+    color: #555;
+}
+
+/* Section Styling */
+section {
+    padding: 60px 0;
+}
+
+.about, .portfolio, .guru, .contact {
+    background-color: #fff;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Button */
+.btn-primary {
+    background-color: #00d3b8;
+    border-color: #00d3b8;
+}
+
+.btn-primary:hover {
+    background-color: #008c6c;
+    border-color: #008c6c;
+}
