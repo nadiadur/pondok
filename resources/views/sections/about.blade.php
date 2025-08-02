@@ -1,9 +1,9 @@
     <section id="about" class="about py-5" style="padding-top: 80px;">
+        </div>
       <div class="container">
         <div class="section-title text-center fade-in">
-          <h2 class="display-4 mb-4">About Us</h2>
-        </div>
-    
+          <h2 class="display-4 mb-4"> Tentang</h2>
+          
         <!-- Founder Section -->
         <div class="row align-items-center mb-5">
           <div class="col-lg-6 order-lg-2">
@@ -11,10 +11,10 @@
           </div>
           <div class="col-lg-6 order-lg-1 slide-in-left">
             <h3 class="mb-4" style="color: #2c4964;">Pendiri Pondok</h3>
-            <p class="lead mb-4">
+            <p class="lead mb-4"  style="text-align: justify;">
               KH. Musyaffa' adalah seorang ulama terkemuka dan pendiri Pondok Pesantren Asrama Perguruan Islam (API). Dilahirkan di keluarga yang sangat menghargai pendidikan agama, beliau menunjukkan minat besar terhadap ilmu pengetahuan, khususnya ilmu agama Islam, sejak usia dini.
             </p>
-            <p>
+            <p  style="text-align: justify;">
               Setelah menuntut ilmu di berbagai pesantren besar di Indonesia dan Timur Tengah, KH. Musyaffa' kembali ke tanah air dengan wawasan yang luas dan mendalam dalam ilmu tafsir, hadis, fiqh, dan tasawuf.
             </p>
           </div>
@@ -27,10 +27,10 @@
           </div>
           <div class="col-lg-6 slide-in-right">
             <h3 class="mb-4" style="color: #2c4964;">Tentang Pondok</h3>
-            <p class="lead mb-4">
+            <p class="lead mb-4"  style="text-align: justify;">
               Pondok Pesantren Asrama Perguruan Islam (API) didirikan dengan visi untuk mencetak generasi Qurani berakhlakul karimah. Pesantren ini lahir dari kepedulian terhadap pentingnya pendidikan agama yang menyeluruh dan berkualitas.
             </p>
-            <p>
+            <p  style="text-align: justify;">
               Dengan kurikulum yang komprehensif, API mengajarkan berbagai disiplin ilmu agama seperti tafsir, hadis, fiqh, dan tasawuf, serta ilmu umum yang diperlukan untuk menghadapi tantangan zaman.
             </p>
           </div>

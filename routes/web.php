@@ -94,3 +94,4 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::post('/registrations/store', [RegistrationController::class, 'store'])->name('user.registrations.store');
 });
 Route::get('/portfolio', [FrontendController::class, 'portfolio'])->name('portfolio');
+Route::delete('/admin/registrations/{id}', [RegistrationController::class, 'destroy'])->name('admin.registrations.destroy');

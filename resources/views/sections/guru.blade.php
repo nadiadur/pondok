@@ -1,11 +1,11 @@
 <!-- Guru Section -->
-<section id="guru" class="guru py-5 bg-light" style="padding-top: 80px">
-    <div class="container">
+<section id="guru" class="guru py-5 " style="padding-top: 80px">
+     </div>
+        <div class="container">
+       
         <div class="section-title">
             <h2 class="text-center mb-4">Guru</h2>
-            <p class="text-center mb-5">Daftar guru yang ada di asrama ini.</p>
-        </div>
-        
+
         <div class="row gy-4" style="display: flex; justify-content: center;">
             @if(isset($teachers) && count($teachers) > 0)
                 @foreach($teachers as $teacher)
@@ -32,7 +32,7 @@
     <div class="container">
         <div class="section-title">
             <h2 class="text-center mb-4">Struktur Kepengurusan</h2>
-            <p class="text-center mb-5">Struktur kepengurusan pondok asrama pendidikan Islam.</p>
+            
         </div>
 
         <div class="row gy-4">
@@ -42,9 +42,7 @@
                     <div class="member text-center p-3" style="border: 1px solid #eee; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                         <h4>{{ $management->nama }}</h4>
                         <span>{{ $management->jabatan }}</span>
-                        <div class="small text-muted mt-2">
-                            Masa Aktif: {{ date('d M Y', strtotime($management->masa_aktif_mulai)) }} - {{ date('d M Y', strtotime($management->masa_aktif_selesai)) }}
-                        </div>
+                       
                     </div>
                 </div>
                 @endforeach

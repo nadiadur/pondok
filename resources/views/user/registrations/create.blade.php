@@ -258,6 +258,10 @@
                             <label class="form-label">Nama Ayah</label>
                             <input type="text" name="nama_ayah" class="form-control" required>
                         </div>
+                       <div class="form-group mb-3">
+                            <label for="telpon">Nomor Telepon</label>
+                            <input type="text" name="telpon" class="form-control" id="telpon" required>
+                        </div>
 
                         <div class="mb-3">
                             <label class="form-label">Foto Kartu Keluarga</label>

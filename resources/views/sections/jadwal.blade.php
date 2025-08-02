@@ -1,145 +1,108 @@
 <style>
-    body.no-scroll {
-        height: 100vh;
-        overflow: hidden;
-    }
+.flowchart-wrapper {
+    background: #eaf3ff;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
 
-    .jadwal {
-        background: #f9f9f9;
-        padding: 40px 0;
-        text-align: center;
-    }
+.flowchart-title {
+    font-size: 28px;
+    color: #2c4964;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
 
-    .section-title {
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: #00d3b8;
-    }
+.flowchart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-    .schedule-wrapper {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
+.flow-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
 
-    .day-btn {
-        background: #00d3b8;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+.flow-box {
+    background-color: #ffffff;
+    border: 2px solid #2c4964;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin: 15px 0;
+    font-weight: 600;
+    width: 100%;
+    max-width: 280px;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
 
-    .day-btn:hover {
-        background: #008f80;
-    }
+.flow-box:last-child::after {
+    display: none;
+}
 
-    /* POPUP STYLING */
-    .popup {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-    }
+.flow-box::after {
+    content: "↓";
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color:#2c4964;
+}
 
-    .popup-content {
-        position: relative;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        width: 300px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+.flow-label {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color:#2c4964;
+    text-transform: uppercase;
+}
 
-    .popup-content h3 {
-        margin-bottom: 10px;
-        color: #00d3b8;
+@media (max-width: 768px) {
+    .flowchart-grid {
+        grid-template-columns: 1fr;
     }
-
-    .popup-content ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    .popup-content li {
-        font-size: 14px;
-        padding: 5px 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 20px;
-        cursor: pointer;
-    }
-
-    .back-btn {
-        margin-top: 15px;
-        background: #00d3b8;
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .back-btn:hover {
-        background: #008f80;
-    }
+}
 </style>
 
-<section id="jadwal" class="jadwal">
-    <h2 class="section-title">Jadwal Kegiatan Pondok</h2>
-    <div class="schedule-wrapper">
-        <button class="day-btn" onclick="showPopup('senin')">Senin</button>
-        <button class="day-btn" onclick="showPopup('selasa')">Selasa</button>
-        <button class="day-btn" onclick="showPopup('rabu')">Rabu</button>
-        <button class="day-btn" onclick="showPopup('kamis')">Kamis</button>
-        <button class="day-btn" onclick="showPopup('jumat')">Jumat</button>
-        <button class="day-btn" onclick="showPopup('sabtu')">Sabtu</button>
-        <button class="day-btn" onclick="showPopup('minggu')">Minggu</button>
+<section class="flowchart-wrapper" id="alur"  class="portfolio py-5" style="padding-top: 80px">
+   <div class="container">
+     <div class="section-title text-center fade-in">
+      <h2 class="text-center mb-4">Pendaftaran</h2>
+     </div>
+      <div class="container">
+          
+        <h2 class="flowchart-title">Bagan Alur Pendaftaran Santri</h2>
+
+  <div class="flowchart-grid">
+    <!-- Offline Column -->
+    <div class="flow-column">
+      <div class="flow-label">Offline</div>
+      <div class="flow-box">Pilih Metode: Offline</div>
+      <div class="flow-box">Datang ke kantor pesantren</div>
+      <div class="flow-box">Alamat: Rw. 04, Pelemkerep, Kec. Mayong, Kabupaten Jepara Jawa Tengah 59465</div>
+      <div class="flow-box">Bawa syarat:<br> FC KK & FC Akte</div>
+      <div class="flow-box">Selesai</div>
     </div>
+
+    <!-- Online Column -->
+    <div class="flow-column">
+      <div class="flow-label">Online</div>
+      <div class="flow-box">Pilih Metode: Online</div>
+      <div class="flow-box">Login (jika punya akun)</div>
+      <div class="flow-box">Atau Registrasi dahulu</div>
+      <div class="flow-box">Masuk ke dashboard pendaftaran</div>
+      <div class="flow-box">Isi formulir pendaftaran</div>
+      <div class="flow-box">Klik Kirim</div>
+      <div class="flow-box">Tunggu verifikasi admin</div>
+      <div class="flow-box">Jika disetujui, admin akan menghubungi</div>
+    </div>
+  </div>
 </section>
 
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <h3 id="popup-title"></h3>
-        <ul id="popup-schedule"></ul>
-        <button class="back-btn" onclick="closePopup()">Back</button>
-    </div>
-</div>
-
-<script>
-    const schedules = {
-        senin: ["05:00 - Shalat Subuh berjamaah", "06:00 - Pengajian pagi", "08:00 - Kelas reguler", "12:00 - Shalat Dhuhur berjamaah", "13:00 - Istirahat", "20:00 - Pengajian Malam"],
-        selasa: ["05:00 - Shalat Subuh", "06:00 - Tahfidz", "08:00 - Kelas Reguler", "15:00 - Keterampilan", "20:00 - Diskusi"],
-        rabu: ["05:00 - Shalat Subuh", "06:00 - Pengajian Pagi", "08:00 - Kelas Reguler", "12:00 - Shalat Dhuhur", "15:00 - Kegiatan Ekstrakurikuler", "20:00 - Kajian Islam"],
-        kamis: ["05:00 - Shalat Subuh", "06:00 - Tahfidz", "08:00 - Kelas Reguler", "12:00 - Shalat Dhuhur", "15:00 - Kegiatan Sosial", "20:00 - Pengajian Malam"],
-        jumat: ["05:00 - Shalat Subuh", "07:00 - Jumat Bersih", "10:00 - Persiapan Shalat Jumat", "13:00 - Kajian Islam", "16:00 - Olahraga", "20:00 - Istighotsah"],
-        sabtu: ["05:00 - Shalat Subuh", "06:00 - Pengajian Pagi", "08:00 - Kelas Reguler", "12:00 - Shalat Dhuhur", "15:00 - Seni & Budaya", "20:00 - Pengajian Malam"],
-        minggu: ["05:00 - Shalat Subuh", "06:00 - Kegiatan Bebas", "09:00 - Rekreasi", "12:00 - Shalat Dhuhur", "15:00 - Persiapan Pekan Depan", "20:00 - Evaluasi Mingguan"]
-    };
-
-    function showPopup(day) {
-        document.getElementById("popup-title").innerText = "Jadwal " + day.charAt(0).toUpperCase() + day.slice(1);
-        document.getElementById("popup-schedule").innerHTML = schedules[day].map(item => `<li>${item}</li>`).join("");
-        document.getElementById("popup").style.display = "flex";
-    }
-
-    function closePopup() {
-        document.getElementById("popup").style.display = "none";
-    }
-</script>

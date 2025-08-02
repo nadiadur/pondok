@@ -141,46 +141,91 @@
     
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Tanggal</th>
-                    <th>Nama</th>
-                    <th>Tahun Masuk</th>
-                    <th>Status</th>
-                    <th>Dokumen</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
+          <thead>
+              <tr>
+                  <th>Tanggal</th>
+                  <th>Nama</th>
+                  <th>Tahun Masuk</th>
+                  <th>Status</th>
+                  <th>Dokumen</th>
+                  <th>Nama Ayah</th>
+                  <th>Telepon</th>
+                  <th>Aksi</th>
+              </tr>
+          </thead>
+
             <tbody>
-                @foreach($registrations as $registration)
-                <tr>
-                    <td>{{ $registration->created_at->format('d/m/Y') }}</td>
-                    <td>{{ $registration->nama }}</td>
-                    <td>{{ $registration->tahun_masuk }}</td>
-                    <td>
-                        <span class="badge bg-{{ $registration->status === 'pending' ? 'warning' : ($registration->status === 'approved' ? 'success' : 'danger') }}">
-                            {{ ucfirst($registration->status) }}
-                        </span>
-                    </td>
-                    <td>
-                        <a href="{{ $registration->foto_kk }}" target="_blank" class="btn btn-sm btn-info">KK</a>
-                        <a href="{{ $registration->akte }}" target="_blank" class="btn btn-sm btn-info">Akte</a>
-                    </td>
-                    <td>
-                        <form action="{{ route('admin.registrations.update-status', $registration) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('PATCH')
-                            <select name="status" class="form-select form-select-sm d-inline-block w-auto" onchange="this.form.submit()">
-                                <option value="pending" {{ $registration->status === 'pending' ? 'selected' : '' }}>Pending</option>
-                                <option value="approved" {{ $registration->status === 'approved' ? 'selected' : '' }}>Approve</option>
-                                <option value="rejected" {{ $registration->status === 'rejected' ? 'selected' : '' }}>Reject</option>
-                            </select>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
+    @foreach($registrations as $registration)
+    <tr>
+        <td>{{ $registration->created_at->format('d/m/Y') }}</td>
+        <td>{{ $registration->nama }}</td>
+        <td>{{ $registration->tahun_masuk }}</td>
+        
+        <td>
+            <span class="badge bg-{{ $registration->status === 'pending' ? 'warning' : ($registration->status === 'approved' ? 'success' : 'danger') }}">
+                {{ ucfirst($registration->status) }}
+            </span>
+        </td>
+        <td>
+            <a href="{{ $registration->foto_kk }}" target="_blank" class="btn btn-sm btn-info">KK</a>
+            <a href="{{ $registration->akte }}" target="_blank" class="btn btn-sm btn-info">Akte</a>
+        </td>
+        <td>{{ $registration->nama_ayah }}</td>
+        <td>{{ $registration->telpon }}</td>
+        <td>
+            <form action="{{ route('admin.registrations.update-status', $registration) }}" method="POST" class="d-inline">
+                @csrf
+                @method('PATCH')
+                <select name="status" class="form-select form-select-sm d-inline-block w-auto" onchange="this.form.submit()">
+                    <option value="pending" {{ $registration->status === 'pending' ? 'selected' : '' }}>Pending</option>
+                    <option value="approved" {{ $registration->status === 'approved' ? 'selected' : '' }}>Approve</option>
+                    <option value="rejected" {{ $registration->status === 'rejected' ? 'selected' : '' }}>Reject</option>
+                </select>
+            </form>
+              <!-- Tombol Hapus -->
+             <form action="{{ route('admin.registrations.destroy', $registration->id) }}" method="POST" class="d-inline delete-form" data-nama="{{ $registration->nama }}">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-sm btn-danger mt-1">
+                      <i class="fas fa-trash-alt"></i>
+                  </button>
+              </form>
+          </td>
+        </td>
+    </tr>
+    @endforeach
+</tbody>
+
         </table>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelectorAll('.delete-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nama = form.getAttribute('data-nama');
+
+            Swal.fire({
+                title: 'Yakin ingin menghapus?',
+                html: `Data atas nama <strong>${nama}</strong> akan dihapus secara permanen.`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+
+
 @endsection

@@ -58,30 +58,12 @@
 
     .btn-get-started:hover {
         background: transparent;
-        color: #8bc6bf;
-        border-color: #8bc6bf;
+        color:#2c4964;
+        border-color:#2c4964;
         transform: translateY(-3px);
         box-shadow: 0 5px 15px rgba(139, 198, 191, 0.4);
     }
 
-    .particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 1;
-    }
-
-    .particle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 50%;
-        animation: float 6s infinite;
-    }
 
     @keyframes fadeInDown {
         from {
@@ -170,21 +152,6 @@
       }
     }
     
-    .section-title {
-      position: relative;
-      margin-bottom: 3rem;
-    }
-    
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
-      background: #8bc6bf;
-    }
     
     .about-image {
       border-radius: 15px;
@@ -199,7 +166,7 @@
     .vision-box {
       border-radius: 15px;
       padding: 2rem;
-      background: linear-gradient(145deg, #8bc6bf, #7ab3ac);
+      background: linear-gradient(145deg,#2c4964, #2c4964);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
@@ -232,12 +199,12 @@
     display: block;
     width: 50px;
     height: 3px;
-    background: #8bc6bf;
+    background: #2c4964;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
-
+   
 .contact-about {
     background: #fff;
     padding: 30px;
@@ -288,7 +255,7 @@
 
 .info i {
     font-size: 24px;
-    color: #8bc6bf;
+    color: #2c4964;
     margin-right: 15px;
     width: 40px;
     height: 40px;
@@ -301,7 +268,7 @@
 }
 
 .info div:hover i {
-    background: #8bc6bf;
+    background: #2c4964;
     color: #fff;
 }
 
@@ -329,13 +296,9 @@
 }
     </style>
    <section id="awal">
-    <div class="particles">
-      <!-- Particle elements will be injected by JavaScript -->
-    </div>
     <div class="hero-container">
-      <h1>Asrama Perguruan Islam</h1>
+      <h1>Ponpes Asrama Perguruan Islam</h1>
       <h2>Pencetak generasi Qurani yang berakhlakul karimah</h2>
-      <a href="tampilan/asset/img/brosur.jpeg" download class="btn-get-started">Download Brosur</a>
     </div>
   </section>
   <script>
@@ -363,8 +326,8 @@
 </script>
 
     @include('sections.about')
-    @include('sections.jadwal')
     @include('sections.portfolio')
     @include('sections.guru')
+    @include('sections.jadwal')
     @include('sections.contact')
 @endsection

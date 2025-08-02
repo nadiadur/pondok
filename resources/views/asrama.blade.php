@@ -6,25 +6,62 @@
     <title>Asrama Perguruan Islam</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        :root {
+            --main-blue:#2c4964;
+        }
+
         .hero {
-            background: linear-gradient(to right, #8bc6bf, #00d3b8);
+            background-color: var(--main-blue);
             color: white;
         }
+
+        .navbar {
+            background-color: var(--main-blue);
+        }
+
         .navbar-brand, .nav-link {
             font-weight: 600;
+            color: white !important;
         }
+
+        .nav-link:hover,
+        .nav-link.active {
+            text-decoration: underline;
+        }
+
+        .btn-outline-light {
+            color: white;
+            border-color: white;
+        }
+
+        .btn-outline-light:hover {
+            background-color: white;
+            color: var(--main-blue);
+        }
+
+        .btn-light {
+            background-color: white;
+            color: var(--main-blue);
+            border: 2px solid white;
+        }
+
+        .btn-light:hover {
+            background-color: #e6e6e6;
+            color: var(--main-blue);
+        }
+
         footer {
-            background-color: #343a40;
+            background-color: var(--main-blue);
             color: #fff;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Asrama PI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,7 +80,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light ms-3" href="{{ route('login') }}">Login</a>
-
                     </li>
                 </ul>
             </div>

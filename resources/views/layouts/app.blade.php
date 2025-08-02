@@ -17,12 +17,31 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
     <style>
         /* Tambahkan CSS untuk mengatur spacing */
         body {
             padding-top: 76px; /* Sesuaikan dengan tinggi navbar */
         }
+            @media (max-width: 768px) {
+                .navbar-collapse.show {
+                    background-color: #ffffff;
+                    padding: 1rem;
+                    border-radius: 0 0 10px 10px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                }
 
+                .navbar-collapse .nav-link {
+                    color: #333;
+                }
+            }
+            @media (max-width: 768px) {
+                .navbar-collapse {
+                    transition: max-height 0.4s ease-in-out;
+                    overflow: hidden;
+                }
+        }               
         .navbar {
             height: 76px; /* Tetapkan tinggi navbar */
         }
@@ -38,7 +57,7 @@
         }
 
         .nav-link:hover {
-            color: #0d6efd !important;
+            color: #2c4964 !important;
         }
 
         /* Pastikan dropdown tidak tertutup */
@@ -55,62 +74,123 @@
             .navbar {
                 height: 62px;
             }
+            
         }
+        /* Hover untuk link navbar */
+            .navbar .nav-link:hover {
+                color: #2c4964 !important; /* warna biru gelap saat hover */
+            }
+
+            /* Hover untuk brand (nama Asrama Perguruan Islam) */
+            .navbar .navbar-brand:hover {
+                color: #2c4964 !important;
+                transition: color 0.3s ease;
+            }
+
+            .btn-custom {
+            background-color: #2c4964;
+            color: white;
+            border: none;
+        }
+
+            .btn-custom:hover {
+                background-color: #1f3348;
+                color: white;
+            }
+
+            .btn-outline-custom {
+                border: 2px solid #2c4964;
+                color: #2c4964;
+                background-color: transparent;
+            }
+
+            .btn-outline-custom:hover {
+                background-color: #2c4964;
+                color: white;
+            }
+            .btn-custom, .btn-outline-custom {
+            min-width: 100px;         
+            padding: 10px 20px;      
+            font-size: 16px;          
+            text-align: center;       
+            border-radius: 8px;       
+            font-weight: 600;         
+        }
+            .navbar .nav-link.active,
+            .navbar .nav-link:focus,
+            .navbar .nav-link:hover {
+                border-bottom: 2px solid #2c4964 !important; /* ganti jadi biru tua */
+                color: #2c4964 !important; /* warna teks saat aktif/hover */
+            }
+            .navbar {
+                border-bottom: 2px solid #2c4964 !important; /* biru gelap */
+            }
+            .custom-button {
+                background-color: #2c4964;
+                color: #fff;
+                border: none;
+                padding: 8px 20px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            .custom-button:hover {
+                background-color: #1d3548;
+                color: #fff;
+            }
     </style>
+    
 </head>
 
 <body>
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
-            <div class="container">
-                <a class="navbar-brand fw-bold" href="{{ url('/') }}">
-                    {{ config('app.name', 'Asrama Perguruan Islam') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url('/#awal') }}">
+            {{ config('app.name', 'Asrama Perguruan Islam') }}
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto"></ul>
+            <ul class="navbar-nav ms-auto align-items-center">
+    @if (!Request::is('admin*') && !Request::is('registrations*') && !Request::is('user*') && !Request::is('login') && !Request::is('register'))
+        <li><a class="nav-link scrollto" href="#awal">Beranda</a></li>
+        <li><a class="nav-link scrollto" href="#about">Tentang</a></li>
+        <li><a class="nav-link scrollto" href="#portfolio">Gallery</a></li>
+        <li><a class="nav-link scrollto" href="#guru">Guru</a></li>
+        <li><a class="nav-link scrollto" href="#alur">Pendaftaran</a></li>
+        <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+
         
-                <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav me-auto"></ul>
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li><a class="nav-link scrollto" href="#awal">Home</a></li>
-                        <li><a class="nav-link scrollto" href="#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="#jadwal">Jadwal</a></li>
-                        <li><a class="nav-link scrollto" href="#portfolio">Portofolio</a></li>
-                        <li><a class="nav-link scrollto" href="#guru">Guru</a></li>
-                        <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
-                        
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item ms-2">
-                                    <a class="btn btn-primary px-3" href="{{ route('login') }}">Login</a>
-                                </li>
-                            @endif
-                            @if (Route::has('register'))
-                                <li class="nav-item ms-2">
-                                    <a class="btn btn-outline-primary px-3" href="{{ route('register') }}">Register</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown ms-2">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-secondary px-3" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
+    @endif
+
+    @guest
+        @if (Route::has('login'))
+            <li class="nav-item ms-2">
+                <a class="btn btn-custom  px-3" href="{{ route('login') }}">Login</a>
+            </li>
+        @endif
+        @if (Route::has('register'))
+            <li class="nav-item ms-2">
+                <a class="btn btn-outline-custom  px-3" href="{{ route('register') }}">Register</a>
+            </li>
+        @endif
+    @else
+        {{-- Tidak menampilkan apapun --}}
+    @endguest
+</ul>
+<div class="d-md-none text-end mt-3">
+        <button class="btn btn-outline-secondary btn-sm me-3" id="closeNavbarBtn">
+            <i class="fa fa-times"></i> Tutup
+        </button>
+        </div>
+    </div>
+</nav>
+
 
         <!-- Main Content -->
         <main class="py-4">
@@ -118,7 +198,25 @@
         </main>
     </div>
 
-    <!-- Add required scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <!-- Add required scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const closeBtn = document.getElementById('closeNavbarBtn');
+        const navbarCollapse = document.getElementById('navbarContent');
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function () {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                }
+            });
+        }
+    });
+</script>
+
+
+
 </body>
 </html>

@@ -145,7 +145,7 @@ body {
       <div class="col-md-4"><div class="card text-center p-3"><i class="fas fa-id-badge fa-2x mb-2 text-warning"></i>Data Jabatan</div></div>
       <div class="col-md-4"><div class="card text-center p-3"><i class="fas fa-file-alt fa-2x mb-2 text-danger"></i>Data Pendaftaran Santri</div></div>
     </div>
-    <p class="text-center mt-4 text-secondary">2024 © Nadia Durrotul</p>
+    <p class="text-center mt-4 text-secondary">2025 © Asrama Perguruan Islam</p>
   </div>
 </div>
 @endsection

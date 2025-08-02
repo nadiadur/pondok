@@ -21,6 +21,7 @@ class RegistrationController extends Controller
             'tahun_masuk' => 'required|date_format:Y',
             'nama_ibu' => 'required',
             'nama_ayah' => 'required',
+            'telpon' => 'required', 
             'foto_kk' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'akte' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);

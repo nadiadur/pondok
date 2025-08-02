@@ -280,7 +280,8 @@
                                 @if($registration->status == 'approved')
                                     <span class="badge bg-success">Disetujui</span>
                                 @elseif($registration->status == 'pending')
-                                    <span class="badge bg-warning text-dark">Menunggu Persetujuan</span>
+                                   <span class="badge bg-warning text-dark text-wrap" style="white-space: normal;">Menunggu Persetujuan</span>
+
                                 @else
                                     <span class="badge bg-danger">Ditolak</span>
                                 @endif
@@ -294,7 +295,7 @@
         </div>
 
         <footer class="footer-text text-center">
-            <p>2024 © Nadia Durrotul - Sistem Informasi Pondok Pesantren</p>
+            <p>2025 @ Asrama Pergururan Islam</p>
         </footer>
     </div>
 </div>

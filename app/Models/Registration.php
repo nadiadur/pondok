@@ -14,6 +14,7 @@ class Registration extends Model
         'tahun_masuk',
         'nama_ibu',
         'nama_ayah',
+        'telpon',
         'foto_kk',
         'akte',
         'status'
